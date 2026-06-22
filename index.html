@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELIXIR — Faction Epitech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 2L24 8V20L14 26L4 20V8L14 2Z" stroke="#9B30FF" stroke-width="1.5" fill="none"/>
+          <path d="M14 8L19 11V17L14 20L9 17V11L14 8Z" fill="#9B30FF" opacity="0.6"/>
+          <circle cx="14" cy="14" r="2" fill="#C84BF5"/>
+        </svg>
+        <span class="logo-text">ELIXIR</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#lore">Écosystème</a></li>
+        <li><a href="#factions">Rivalités</a></li>
+        <li><a href="#roster">Roster</a></li>
+        <li><a href="#game">BEAM Core</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" y1="6" x2="19" y2="6" stroke="#F0E6FF" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="3" y1="11" x2="19" y2="11" stroke="#F0E6FF" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="3" y1="16" x2="19" y2="16" stroke="#F0E6FF" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <div class="hero-bg-grid" aria-hidden="true"></div>
+    <div class="hero-orb orb-1" aria-hidden="true"></div>
+    <div class="hero-orb orb-2" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-dot"></span>
+        <span class="eyebrow-mono">FACTION // EPITECH 2026</span>
+      </div>
+
+      <h1 class="hero-title" aria-label="ELIXIR">
+        <span class="title-letter" style="--i:0">E</span><span class="title-letter" style="--i:1">L</span><span class="title-letter" style="--i:2">I</span><span class="title-letter" style="--i:3">X</span><span class="title-letter" style="--i:4">I</span><span class="title-letter" style="--i:5">R</span>
+      </h1>
+
+      <p class="hero-tagline">Concurrence massive. Tolérance aux pannes légendaire.<br>Sur la <em>BEAM VM</em>, chaque processus est immortel.</p>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value">2011</span>
+          <span class="stat-label">Création par José Valim</span>
+          <span class="stat-sub">Productivité moderne sur Erlang/OTP</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card">
+          <span class="stat-value">BEAM VM</span>
+          <span class="stat-label">Architecture runtime</span>
+          <span class="stat-sub">Systèmes distribués hautement concurrents</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-card">
+          <span class="stat-value">99.9999<span class="stat-value-sup">9%</span></span>
+          <span class="stat-label">Haute disponibilité</span>
+          <span class="stat-sub">Tolérance aux pannes héritée des télécoms</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-row">
+        <a href="#lore" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 3V13M8 13L4 9M8 13L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Explorer l'écosystème
+        </a>
+        <a href="#game" class="btn-ghost">Lancer BEAM Core Survivor</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <svg width="18" height="28" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="16" height="22" rx="8" stroke="#9B30FF" stroke-width="1.2" opacity="0.5"/>
+        <circle cx="9" cy="8" r="2.5" fill="#9B30FF" class="scroll-dot"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== LORE / ECOSYSTEM ===== -->
+  <section id="lore" class="lore-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag mono">01 // ARCHITECTURE</span>
+        <h2 class="section-title">LOG-CORE // L'ÉCOSYSTÈME</h2>
+      </div>
+
+      <div class="lore-grid">
+        <div class="lore-card" data-index="01">
+          <div class="lore-card-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="3" fill="#9B30FF"/>
+              <circle cx="6" cy="10" r="2.5" fill="#9B30FF" opacity="0.6"/>
+              <circle cx="26" cy="10" r="2.5" fill="#9B30FF" opacity="0.6"/>
+              <circle cx="6" cy="22" r="2.5" fill="#9B30FF" opacity="0.6"/>
+              <circle cx="26" cy="22" r="2.5" fill="#9B30FF" opacity="0.6"/>
+              <line x1="16" y1="16" x2="6" y2="10" stroke="#9B30FF" stroke-width="1" opacity="0.4"/>
+              <line x1="16" y1="16" x2="26" y2="10" stroke="#9B30FF" stroke-width="1" opacity="0.4"/>
+              <line x1="16" y1="16" x2="6" y2="22" stroke="#9B30FF" stroke-width="1" opacity="0.4"/>
+              <line x1="16" y1="16" x2="26" y2="22" stroke="#9B30FF" stroke-width="1" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3 class="lore-card-title">Modèle d'Acteurs</h3>
+          <p class="lore-card-body">Chaque opération tourne dans un processus BEAM isolé et ultra-léger — des millions en parallèle sans fil d'exécution partagé. La défaillance d'un acteur ne cascade jamais : les superviseurs OTP relancent les processus en microsecondes, automatiquement.</p>
+          <div class="lore-card-code mono"># Spawn : 1M processus en ~1s sur BEAM</div>
+        </div>
+
+        <div class="lore-card" data-index="02">
+          <div class="lore-card-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="4" width="24" height="24" rx="3" stroke="#9B30FF" stroke-width="1.5" fill="none" opacity="0.4"/>
+              <path d="M10 16H22M16 10V22" stroke="#C84BF5" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="16" cy="16" r="3" stroke="#9B30FF" stroke-width="1"/>
+            </svg>
+          </div>
+          <h3 class="lore-card-title">Phoenix LiveView</h3>
+          <p class="lore-card-body">Le framework web temps réel de la faction. Phoenix (LiveView) maintient des connexions WebSocket persistantes sans JavaScript côté client — les mises à jour DOM arrivent du serveur en millisecondes. Zéro round-trip API, zéro état client à synchroniser.</p>
+          <div class="lore-card-code mono">~H sigil → HTML natif, réactivité serveur</div>
+        </div>
+
+        <div class="lore-card" data-index="03">
+          <div class="lore-card-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 10L16 6L24 10V22L16 26L8 22V10Z" stroke="#9B30FF" stroke-width="1.5" fill="none" opacity="0.5"/>
+              <path d="M16 6V26M8 10L24 22M24 10L8 22" stroke="#C84BF5" stroke-width="0.8" opacity="0.4"/>
+            </svg>
+          </div>
+          <h3 class="lore-card-title">Immuabilité Structurelle</h3>
+          <p class="lore-card-body">Elixir élimine la catégorie entière des bugs de concurrence par design : les données sont immuables. Aucun état partagé mutable, aucun mutex à gérer, aucune condition de course possible. Le partage de données entre processus se fait par message — toujours sûr, toujours prévisible.</p>
+          <div class="lore-card-code mono">state = Map.put(state, :key, val) # nouveau state</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FACTIONS ENNEMIES ===== -->
+  <section id="factions" class="factions-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag mono">02 // RIVALITÉS</span>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active" data-tab="js" role="tab" aria-selected="true" aria-controls="tab-js">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="14" height="14" rx="2" fill="#EAB308" opacity="0.2"/>
+              <text x="3" y="11" font-family="monospace" font-size="8" fill="#EAB308" font-weight="700">JS</text>
+            </svg>
+            JavaScript
+          </button>
+          <button class="tab-btn" data-tab="rust" role="tab" aria-selected="false" aria-controls="tab-rust">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="14" height="14" rx="2" fill="#F97316" opacity="0.2"/>
+              <path d="M7 2L12 5V9L7 12L2 9V5L7 2Z" stroke="#F97316" stroke-width="1" fill="none"/>
+            </svg>
+            Rust
+          </button>
+        </div>
+
+        <div class="tab-panel active" id="tab-js" role="tabpanel" data-color="js">
+          <div class="faction-card faction-js">
+            <div class="faction-header">
+              <div class="faction-badge faction-badge-js">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="40" rx="6" fill="#EAB308" opacity="0.15"/>
+                  <text x="7" y="28" font-family="monospace" font-size="18" fill="#EAB308" font-weight="900">JS</text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="faction-name">JavaScript</h3>
+                <p class="faction-verdict">L'usine à gaz du Web</p>
+              </div>
+              <div class="faction-threat">
+                <span class="threat-label mono">MENACE</span>
+                <div class="threat-bar">
+                  <div class="threat-fill" style="--fill: 55%; --color: #EAB308"></div>
+                </div>
+              </div>
+            </div>
+            <div class="weaknesses-grid">
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 3L17 7V13L10 17L3 13V7L10 3Z" stroke="#EAB308" stroke-width="1.2" fill="none" opacity="0.5"/>
+                    <line x1="7" y1="10" x2="13" y2="10" stroke="#EAB308" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Écosystème brisé</h4>
+                  <p class="weakness-desc"><span class="mono-inline">node_modules</span> peut dépasser le poids de l'application entière. Des centaines de micro-paquets jamais maintenus créent une surface d'attaque et une dette technique permanentes.</p>
+                </div>
+              </div>
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7" stroke="#EAB308" stroke-width="1.2" fill="none" opacity="0.5"/>
+                    <path d="M7 7L13 13M13 7L7 13" stroke="#EAB308" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Typage chaotique</h4>
+                  <p class="weakness-desc">La coercition de types dynamique produit des aberrations comme <span class="mono-inline">[] == ![]</span> évalué à <span class="mono-inline">true</span>. TypeScript plâtre le problème sans l'éliminer à la racine.</p>
+                </div>
+              </div>
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polyline points="3,15 7,8 11,12 15,5 17,7" stroke="#EAB308" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="3" y1="17" x2="17" y2="17" stroke="#EAB308" stroke-width="1" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Instabilité sous charge</h4>
+                  <p class="weakness-desc">Le modèle mono-threadé de Node.js avec event loop s'effondre face à des charges I/O massives simultanées. La concurrence réelle nécessite des workers complexes à orchestrer manuellement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-rust" role="tabpanel" data-color="rust">
+          <div class="faction-card faction-rust">
+            <div class="faction-header">
+              <div class="faction-badge faction-badge-rust">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect width="40" height="40" rx="6" fill="#F97316" opacity="0.15"/>
+                  <path d="M20 8L32 15V25L20 32L8 25V15L20 8Z" stroke="#F97316" stroke-width="2" fill="none"/>
+                  <circle cx="20" cy="20" r="4" fill="#F97316" opacity="0.5"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="faction-name">Rust</h3>
+                <p class="faction-verdict">La forteresse inflexible</p>
+              </div>
+              <div class="faction-threat">
+                <span class="threat-label mono">MENACE</span>
+                <div class="threat-bar">
+                  <div class="threat-fill" style="--fill: 72%; --color: #F97316"></div>
+                </div>
+              </div>
+            </div>
+            <div class="weaknesses-grid">
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 3L17 7V13L10 17L3 13V7L10 3Z" stroke="#F97316" stroke-width="1.2" fill="none" opacity="0.5"/>
+                    <path d="M10 8V12M10 14V14" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Le Borrow Checker</h4>
+                  <p class="weakness-desc">La guerre permanente avec le Borrow Checker transforme le prototypage en cauchemar. Les concepts d'ownership, lifetime et borrow nécessitent des semaines d'apprentissage avant d'être productif sur du code non-trivial.</p>
+                </div>
+              </div>
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="7" stroke="#F97316" stroke-width="1.2" fill="none" opacity="0.5"/>
+                    <path d="M10 6V10L13 13" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Compilation interminable</h4>
+                  <p class="weakness-desc">Les temps de compilation explosent sur les projets de taille réelle. Le cycle build-test ralentit drastiquement l'itération. <span class="mono-inline">cargo check</span> atténue partiellement, mais la pénalité reste structurelle.</p>
+                </div>
+              </div>
+              <div class="weakness-item">
+                <div class="weakness-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="4" width="12" height="12" rx="2" stroke="#F97316" stroke-width="1.2" fill="none" opacity="0.5"/>
+                    <line x1="8" y1="10" x2="12" y2="10" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="weakness-title">Zéro flexibilité</h4>
+                  <p class="weakness-desc">Rust est taillé pour les systèmes critiques bas niveau, pas pour l'itération rapide. Le coût cognitif permanent de la gestion mémoire manuelle annule le bénéfice pour tout projet web ou business logic standard.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROSTER ===== -->
+  <section id="roster" class="roster-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag mono">03 // ÉQUIPE</span>
+        <h2 class="section-title">ROSTER // LOG-MEMBRES</h2>
+      </div>
+      <div class="roster-grid">
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">01</span>
+          <span class="badge-name">ADONAI Brandon</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">02</span>
+          <span class="badge-name">Amenziz Celya</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">03</span>
+          <span class="badge-name">Andy Reybillet</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">04</span>
+          <span class="badge-name">ASSOUAN Jérémy</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">05</span>
+          <span class="badge-name">BENKHALED Ismaïl</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">06</span>
+          <span class="badge-name">BHIHI Saphir</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">07</span>
+          <span class="badge-name">Chekib CHAABI</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">08</span>
+          <span class="badge-name">CHIKHI Amine</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">09</span>
+          <span class="badge-name">DIAS PINTO Thomas</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">10</span>
+          <span class="badge-name">Dubrulle Océane</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">11</span>
+          <span class="badge-name">Erwan LE TENSORER</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">12</span>
+          <span class="badge-name">Ezio Lejet</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">13</span>
+          <span class="badge-name">Félix Bringer</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">14</span>
+          <span class="badge-name">Guillaume Le Logeais</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">15</span>
+          <span class="badge-name">Ishutinova Aleksandra</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">16</span>
+          <span class="badge-name">Léo Dobos</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">17</span>
+          <span class="badge-name">Livian Saas</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">18</span>
+          <span class="badge-name">Maël Le Galliot</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">19</span>
+          <span class="badge-name">Malo Guiochet</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">20</span>
+          <span class="badge-name">Meriem Marchoud</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">21</span>
+          <span class="badge-name">Nassyr Mohamed-Amine</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">22</span>
+          <span class="badge-name">Ortega Noa</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">23</span>
+          <span class="badge-name">Pichard Corentin</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">24</span>
+          <span class="badge-name">Pons Arthur</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">25</span>
+          <span class="badge-name">Raphael ARFIRE</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">26</span>
+          <span class="badge-name">Robin BARBION</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">27</span>
+          <span class="badge-name">SANS Julien</span>
+        </div>
+        <div class="member-badge">
+          <div class="badge-glow" aria-hidden="true"></div>
+          <span class="badge-index mono">28</span>
+          <span class="badge-name">THABET Chahine</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MINI-JEU ===== -->
+  <section id="game" class="game-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag mono">04 // MINI-JEU</span>
+        <h2 class="section-title">BEAM CORE SURVIVOR</h2>
+        <p class="section-subtitle">Survivez aux bugs JS et Rust. Ramassez Lua (cyan) pour débloquer le <strong>triple tir directionnel</strong> dans votre direction de déplacement — stackable jusqu'à 5 balles. Ruby (rouge) active le bouclier à onde de choc.</p>
+      </div>
+
+      <div class="game-wrapper">
+        <div class="game-hud">
+          <div class="hud-item">
+            <span class="hud-label mono">SCORE</span>
+            <span class="hud-value mono" id="scoreDisplay">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label mono">VIE</span>
+            <div class="hud-health" id="healthDisplay">
+              <span class="health-dot active"></span>
+              <span class="health-dot active"></span>
+              <span class="health-dot active"></span>
+            </div>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label mono">BUFFS</span>
+            <div class="hud-buffs" id="buffsDisplay">
+              <span class="buff-badge buff-lua" id="buffLua" style="display:none">LUA ×<span id="luaCount">0</span></span>
+              <span class="buff-badge buff-ruby" id="buffRuby" style="display:none">RUBY</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-container" id="canvasContainer">
+          <canvas id="gameCanvas" width="700" height="420" tabindex="0" aria-label="Jeu BEAM Core Survivor — utilisez les flèches ou ZQSD pour vous déplacer"></canvas>
+          <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-content">
+              <div class="overlay-title mono" id="overlayTitle">BEAM CORE SURVIVOR</div>
+              <div class="overlay-sub" id="overlaySub">Contrôles : Flèches / ZQSD<br>Évitez les bugs, ramassez les bonus</div>
+              <button class="btn-primary" id="startBtn">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M5 3L13 8L5 13V3Z" fill="currentColor"/>
+                </svg>
+                Démarrer
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-legend">
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#9B30FF; box-shadow: 0 0 8px #9B30FF"></span>
+            <span class="legend-label mono">VOUS — Acteur BEAM</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#EAB308; box-shadow: 0 0 8px #EAB308"></span>
+            <span class="legend-label mono">BUG JS — Projectile jaune</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#F97316; box-shadow: 0 0 8px #F97316"></span>
+            <span class="legend-label mono">BUG RUST — Projectile orange</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#06B6D4; box-shadow: 0 0 8px #06B6D4"></span>
+            <span class="legend-label mono">BONUS LUA — Triple tir directionnel + Vitesse</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#EF4444; box-shadow: 0 0 8px #EF4444"></span>
+            <span class="legend-label mono">BONUS RUBY — Bouclier temporaire</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M14 2L24 8V20L14 26L4 20V8L14 2Z" stroke="#9B30FF" stroke-width="1.5" fill="none"/>
+          <path d="M14 8L19 11V17L14 20L9 17V11L14 8Z" fill="#9B30FF" opacity="0.5"/>
+          <circle cx="14" cy="14" r="2" fill="#C84BF5"/>
+        </svg>
+        <span class="mono">FACTION ELIXIR</span>
+      </div>
+      <div class="footer-meta mono">
+        Epitech &mdash; Projet Langages &mdash; 2026
+      </div>
+      <div class="footer-tech mono">
+        Propulsé par BEAM VM &amp; OTP
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
