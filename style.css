@@ -328,8 +328,12 @@ section { padding: 96px 0; }
   box-shadow: 0 0 20px rgba(200,75,245,0.25);
 }
 .member-badge.easter-egg .badge-name {
-  background: linear-gradient(90deg, var(--purple), var(--fuchsia));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  /* Couleur strictement identique aux autres badges — pas de gradient */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--text-primary);
+  background-clip: unset;
+  color: var(--text-primary);
 }
 .member-badge.easter-egg::after {
   content: '★';

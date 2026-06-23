@@ -53,13 +53,13 @@
     badge.appendChild(idx);
     badge.appendChild(label);
 
-    // 🥚 EASTER EGG — SANS Julien → Wikipedia Undertale
+    // 🥚 EASTER EGG — SANS Julien → Undertale Fandom
     if (name === 'SANS Julien') {
       badge.classList.add('easter-egg');
       badge.setAttribute('role', 'link');
       badge.setAttribute('tabindex', '0');
       badge.title = '* tu as l\'air d\'une personne déterminée.';
-      const open = () => window.open('https://fr.wikipedia.org/wiki/Sans_(Undertale)', '_blank', 'noopener,noreferrer');
+      const open = () => window.open('https://undertale.fandom.com/fr/wiki/Sans', '_blank', 'noopener,noreferrer');
       badge.addEventListener('click', open);
       badge.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') open(); });
     }
@@ -198,7 +198,7 @@
   const ORBIT_RADIUS     = 44;      // rayon orbital des orbes Lua
   const ORBIT_SPEED      = 2.2;     // rad/s
   const ORBE_DMG_RADIUS  = 9;
-  const MAX_ORBS         = 6;
+  const MAX_ORBS         = Infinity;  // stacking infini
   const BULLET_SPEED     = 9;
   const BULLET_R         = 5;
   const MAX_HEALTH       = 3;
@@ -206,7 +206,9 @@
   const ENEMY_R          = 9;
   const BONUS_R          = 11;
   const BOSS_WAVE        = 10;
-  const BOSS_MAX_HP      = 600;
+  const BOSS_BASE_HP     = 600;
+  const BOSS_BASE_SPEED  = 0.9;   // vitesse de base du mouvement passif
+  const BOSS_SCALE_FACTOR= 1.75;  // ×1.75 HP et vitesse à chaque réapparition
   const BOSS_R           = 28;
   const LERP_FACTOR      = 0.10;    // lissage souris
 
@@ -236,12 +238,15 @@
   let bullets   = [];
   let bonuses   = [];
   let particles = [];
-  let boss      = null;
-  let bossSpawned = false;
+  let boss           = null;
+  let bossSpawned    = false;   // gardé pour compat (1ère apparition)
+  let bossGeneration = 0;       // 1 à la vague 10, 2 à la 20, etc.
 
   const player  = { x: W/2, y: H/2, r: PLAYER_R };
   const mouse   = { x: W/2, y: H/2 };
+  let mouseHeld = false;   // true uniquement si clic gauche maintenu
   const keys    = {};
+
 
   /* --- Touches bloquées pendant le jeu --- */
   const BLOCKED = new Set(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' ']);
@@ -257,6 +262,9 @@
     mouse.x = (e.clientX - rect.left) * (W / rect.width);
     mouse.y = (e.clientY - rect.top)  * (H / rect.height);
   });
+  canvas.addEventListener('mousedown',  e => { if (e.button === 0) mouseHeld = true;  });
+  canvas.addEventListener('mouseup',    e => { if (e.button === 0) mouseHeld = false; });
+  canvas.addEventListener('mouseleave', ()  => { mouseHeld = false; });
 
   /* --- Helpers --- */
   const rand  = (a, b) => Math.random() * (b - a) + a;
@@ -294,9 +302,10 @@
     luaStacks=0; rubyStacks=0; rubyTimer=0; orbs=[];
     invTimer=0; spawnTimer=0; bonusTimer=0; waveTimer=0; shootTimer=0; orbitAngle=0;
     enemies=[]; bullets=[]; bonuses=[]; particles=[];
-    boss=null; bossSpawned=false;
+    boss=null; bossSpawned=false; bossGeneration=0;
     player.x=W/2; player.y=H/2;
     mouse.x=W/2;  mouse.y=H/2;
+    mouseHeld=false;
     bossHud.style.display='none';
     updateHUD();
   }
@@ -340,19 +349,33 @@
   }
 
   /* --- Boss CLAUDE --- */
-  function spawnBoss() {
+function spawnBoss() {
     bossSpawned = true;
+    bossGeneration++;
+
+    const scale   = Math.pow(BOSS_SCALE_FACTOR, bossGeneration - 1);
+    const scaledHP    = Math.round(BOSS_BASE_HP   * scale);
+    const scaledSpeed = BOSS_BASE_SPEED * Math.pow(BOSS_SCALE_FACTOR, (bossGeneration - 1) * 0.5);
+    // La vitesse scale moins vite que les HP pour rester jouable
+
     boss = {
       x: W/2, y: -BOSS_R-10,
-      r: BOSS_R, hp: BOSS_MAX_HP, maxHp: BOSS_MAX_HP,
+      r: BOSS_R,
+      hp: scaledHP, maxHp: scaledHP,
+      baseSpeed: scaledSpeed,
       angle: 0,
-      dashCooldown: 3000, dashTimer: 0,
-      burstCooldown: 2200, burstTimer: 0,
-      phase: 'enter'   // enter → idle → fight
+      dashCooldown: Math.max(1800, 3000 - bossGeneration*200),
+      dashTimer: 0,
+      burstCooldown: Math.max(1200, 2200 - bossGeneration*150),
+      burstTimer: 0,
+      phase: 'enter',
+      generation: bossGeneration
     };
     bossHud.style.display='flex';
+    // Mise à jour du label de génération dans le HUD
+    const bossWaveNumEl = document.getElementById('bossWaveNum');
+    if (bossWaveNumEl) bossWaveNumEl.textContent = bossGeneration;
   }
-
   function updateBoss(dt) {
     if (!boss) return;
 
@@ -373,8 +396,8 @@
     const d  = Math.hypot(dx, dy) || 1;
 
     // Déplacement de base lent vers le joueur
-    boss.x += (dx/d) * 0.9;
-    boss.y += (dy/d) * 0.9;
+    boss.x += (dx/d) * boss.baseSpeed;
+    boss.y += (dy/d) * boss.baseSpeed;
 
     // Dash : si loin du joueur
     if (boss.dashTimer <= 0 && d > 160) {
@@ -435,17 +458,25 @@
     if (keys['ArrowUp']||keys['w']||keys['z'])     { mvY-=1; usingKeys=true; }
     if (keys['ArrowDown']||keys['s'])              { mvY+=1; usingKeys=true; }
 
-    if (usingKeys) {
-      // ✅ Normalisation diagonale
+if (usingKeys) {
+      // Clavier prioritaire — normalisation diagonale
       const mag = Math.hypot(mvX,mvY) || 1;
       const spd = BASE_SPEED + luaStacks*LUA_SPEED_BONUS;
       player.x += (mvX/mag)*spd;
       player.y += (mvY/mag)*spd;
-    } else {
-      // Suivi souris lissé (lerp)
-      player.x = lerp(player.x, mouse.x, LERP_FACTOR);
-      player.y = lerp(player.y, mouse.y, LERP_FACTOR);
+    } else if (mouseHeld) {
+      // Souris : SEULEMENT si clic gauche maintenu
+      const dxM = mouse.x - player.x;
+      const dyM = mouse.y - player.y;
+      const dM  = Math.hypot(dxM, dyM) || 1;
+      if (dM > 5) { // seuil anti-tremblement
+        const spd   = BASE_SPEED + luaStacks*LUA_SPEED_BONUS;
+        const ratio = Math.min(1, dM / 36); // accélération douce
+        player.x += (dxM/dM)*spd*ratio;
+        player.y += (dyM/dM)*spd*ratio;
+      }
     }
+    // Si ni clavier ni clic : le joueur reste immobile
 
     player.x = Math.max(player.r, Math.min(W-player.r, player.x));
     player.y = Math.max(player.r, Math.min(H-player.r, player.y));
@@ -458,22 +489,30 @@
       if (rubyTimer<=0) { rubyStacks=0; updateHUD(); }
     }
 
-    /* Vagues */
+/* Vagues — infinies, boss toutes les 10 vagues */
     const waveInterval = Math.max(5000, 12000 - wave*600);
     if (waveTimer>=waveInterval) {
       wave++;
       waveTimer=0;
       score+=wave*50;
       updateHUD();
-      if (wave===BOSS_WAVE && !bossSpawned) spawnBoss();
+      // Boss à la vague 10, 20, 30, 40... (toutes les 10 vagues)
+      if (wave % 10 === 0 && !boss) {
+        spawnBoss();
+      }
     }
 
-    /* Spawn ennemis */
-    const spawnInterval = Math.max(300, 1100 - wave*70);
+    /* Spawn ennemis — pression augmente avec les stacks Lua */
+    const luaPressure   = Math.floor(luaStacks / 2);           // 1 ennemi bonus/2 stacks
+    const spawnInterval = Math.max(200, 1100 - wave*70 - luaStacks*28);
     if (spawnTimer>=spawnInterval) {
       spawnEnemy();
       if (wave>3 && Math.random()<0.4) spawnEnemy();
       if (wave>6 && Math.random()<0.3) spawnEnemy();
+      // Spawns supplémentaires proportionnels aux stacks Lua
+      for (let lp=0; lp<luaPressure; lp++) {
+        if (Math.random()<0.6) spawnEnemy();
+      }
       spawnTimer=0;
     }
 
@@ -488,12 +527,16 @@
       orbitAngle += ORBIT_SPEED*(dt/1000);
       // Positions des orbes
       orbs = [];
-      const count = Math.min(luaStacks, MAX_ORBS);
+      const count = luaStacks; // infini, plus de cap
+      // Rayon adaptatif : se resserre progressivement au-delà de 6 orbes
+      const dynamicRadius = count <= 6
+        ? ORBIT_RADIUS
+        : Math.max(28, ORBIT_RADIUS - (count - 6) * 2.2);
       for (let i=0; i<count; i++) {
         const a = orbitAngle + (Math.PI*2/count)*i;
         orbs.push({
-          x: player.x + Math.cos(a)*ORBIT_RADIUS,
-          y: player.y + Math.sin(a)*ORBIT_RADIUS,
+          x: player.x + Math.cos(a)*dynamicRadius,
+          y: player.y + Math.sin(a)*dynamicRadius,
           r: ORBE_DMG_RADIUS
         });
       }
@@ -610,7 +653,7 @@
       const b=bonuses[i];
       if (dist(player,b)<player.r+b.r) {
         if (b.type==='lua') {
-          luaStacks=Math.min(luaStacks+1,MAX_ORBS);
+          luaStacks++;  // stacking infini
           spawnParticles(b.x,b.y,'#06B6D4',12);
         } else if (b.type==='ruby') {
           rubyStacks++;
