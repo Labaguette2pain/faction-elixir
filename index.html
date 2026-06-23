@@ -43,19 +43,15 @@
     <div class="hero-bg-grid" aria-hidden="true"></div>
     <div class="hero-orb orb-1" aria-hidden="true"></div>
     <div class="hero-orb orb-2" aria-hidden="true"></div>
-
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="eyebrow-dot"></span>
         <span class="eyebrow-mono">FACTION // EPITECH 2026</span>
       </div>
-
       <h1 class="hero-title" aria-label="ELIXIR">
         <span class="title-letter" style="--i:0">E</span><span class="title-letter" style="--i:1">L</span><span class="title-letter" style="--i:2">I</span><span class="title-letter" style="--i:3">X</span><span class="title-letter" style="--i:4">I</span><span class="title-letter" style="--i:5">R</span>
       </h1>
-
       <p class="hero-tagline">Concurrence massive. Tolérance aux pannes légendaire.<br>Sur la <em>BEAM VM</em>, chaque processus est immortel.</p>
-
       <div class="hero-stats">
         <div class="stat-card">
           <span class="stat-value">2011</span>
@@ -75,7 +71,6 @@
           <span class="stat-sub">Tolérance aux pannes héritée des télécoms</span>
         </div>
       </div>
-
       <div class="hero-cta-row">
         <a href="#lore" class="btn-primary">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -86,7 +81,6 @@
         <a href="#game" class="btn-ghost">Lancer BEAM Core Survivor</a>
       </div>
     </div>
-
     <div class="hero-scroll-hint" aria-hidden="true">
       <svg width="18" height="28" viewBox="0 0 18 28" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="1" y="1" width="16" height="22" rx="8" stroke="#9B30FF" stroke-width="1.2" opacity="0.5"/>
@@ -102,7 +96,6 @@
         <span class="section-tag mono">01 // ARCHITECTURE</span>
         <h2 class="section-title">LOG-CORE // L'ÉCOSYSTÈME</h2>
       </div>
-
       <div class="lore-grid">
         <div class="lore-card" data-index="01">
           <div class="lore-card-icon" aria-hidden="true">
@@ -122,7 +115,6 @@
           <p class="lore-card-body">Chaque opération tourne dans un processus BEAM isolé et ultra-léger — des millions en parallèle sans fil d'exécution partagé. La défaillance d'un acteur ne cascade jamais : les superviseurs OTP relancent les processus en microsecondes, automatiquement.</p>
           <div class="lore-card-code mono"># Spawn : 1M processus en ~1s sur BEAM</div>
         </div>
-
         <div class="lore-card" data-index="02">
           <div class="lore-card-icon" aria-hidden="true">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +127,6 @@
           <p class="lore-card-body">Le framework web temps réel de la faction. Phoenix (LiveView) maintient des connexions WebSocket persistantes sans JavaScript côté client — les mises à jour DOM arrivent du serveur en millisecondes. Zéro round-trip API, zéro état client à synchroniser.</p>
           <div class="lore-card-code mono">~H sigil → HTML natif, réactivité serveur</div>
         </div>
-
         <div class="lore-card" data-index="03">
           <div class="lore-card-icon" aria-hidden="true">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +148,6 @@
       <div class="section-header">
         <span class="section-tag mono">02 // RIVALITÉS</span>
       </div>
-
       <div class="tabs-container">
         <div class="tabs-nav" role="tablist">
           <button class="tab-btn active" data-tab="js" role="tab" aria-selected="true" aria-controls="tab-js">
@@ -175,7 +165,6 @@
             Rust
           </button>
         </div>
-
         <div class="tab-panel active" id="tab-js" role="tabpanel" data-color="js">
           <div class="faction-card faction-js">
             <div class="faction-header">
@@ -191,9 +180,7 @@
               </div>
               <div class="faction-threat">
                 <span class="threat-label mono">MENACE</span>
-                <div class="threat-bar">
-                  <div class="threat-fill" style="--fill: 55%; --color: #EAB308"></div>
-                </div>
+                <div class="threat-bar"><div class="threat-fill" style="--fill: 55%; --color: #EAB308"></div></div>
               </div>
             </div>
             <div class="weaknesses-grid">
@@ -230,13 +217,12 @@
                 </div>
                 <div>
                   <h4 class="weakness-title">Instabilité sous charge</h4>
-                  <p class="weakness-desc">Le modèle mono-threadé de Node.js avec event loop s'effondre face à des charges I/O massives simultanées. La concurrence réelle nécessite des workers complexes à orchestrer manuellement.</p>
+                  <p class="weakness-desc">Le modèle mono-threadé de Node.js avec event loop s'effondre face à des charges I/O massives. La concurrence réelle nécessite des workers complexes à orchestrer manuellement.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
         <div class="tab-panel" id="tab-rust" role="tabpanel" data-color="rust">
           <div class="faction-card faction-rust">
             <div class="faction-header">
@@ -253,9 +239,7 @@
               </div>
               <div class="faction-threat">
                 <span class="threat-label mono">MENACE</span>
-                <div class="threat-bar">
-                  <div class="threat-fill" style="--fill: 72%; --color: #F97316"></div>
-                </div>
+                <div class="threat-bar"><div class="threat-fill" style="--fill: 72%; --color: #F97316"></div></div>
               </div>
             </div>
             <div class="weaknesses-grid">
@@ -268,7 +252,7 @@
                 </div>
                 <div>
                   <h4 class="weakness-title">Le Borrow Checker</h4>
-                  <p class="weakness-desc">La guerre permanente avec le Borrow Checker transforme le prototypage en cauchemar. Les concepts d'ownership, lifetime et borrow nécessitent des semaines d'apprentissage avant d'être productif sur du code non-trivial.</p>
+                  <p class="weakness-desc">La guerre permanente avec le Borrow Checker transforme le prototypage en cauchemar. Les concepts d'ownership, lifetime et borrow nécessitent des semaines avant d'être productif sur du code non-trivial.</p>
                 </div>
               </div>
               <div class="weakness-item">
@@ -309,147 +293,8 @@
         <span class="section-tag mono">03 // ÉQUIPE</span>
         <h2 class="section-title">ROSTER // LOG-MEMBRES</h2>
       </div>
-      <div class="roster-grid">
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">01</span>
-          <span class="badge-name">ADONAI Brandon</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">02</span>
-          <span class="badge-name">Amenziz Celya</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">03</span>
-          <span class="badge-name">Andy Reybillet</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">04</span>
-          <span class="badge-name">ASSOUAN Jérémy</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">05</span>
-          <span class="badge-name">BENKHALED Ismaïl</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">06</span>
-          <span class="badge-name">BHIHI Saphir</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">07</span>
-          <span class="badge-name">Chekib CHAABI</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">08</span>
-          <span class="badge-name">CHIKHI Amine</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">09</span>
-          <span class="badge-name">DIAS PINTO Thomas</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">10</span>
-          <span class="badge-name">Dubrulle Océane</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">11</span>
-          <span class="badge-name">Erwan LE TENSORER</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">12</span>
-          <span class="badge-name">Ezio Lejet</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">13</span>
-          <span class="badge-name">Félix Bringer</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">14</span>
-          <span class="badge-name">Guillaume Le Logeais</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">15</span>
-          <span class="badge-name">Ishutinova Aleksandra</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">16</span>
-          <span class="badge-name">Léo Dobos</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">17</span>
-          <span class="badge-name">Livian Saas</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">18</span>
-          <span class="badge-name">Maël Le Galliot</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">19</span>
-          <span class="badge-name">Malo Guiochet</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">20</span>
-          <span class="badge-name">Meriem Marchoud</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">21</span>
-          <span class="badge-name">Nassyr Mohamed-Amine</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">22</span>
-          <span class="badge-name">Ortega Noa</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">23</span>
-          <span class="badge-name">Pichard Corentin</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">24</span>
-          <span class="badge-name">Pons Arthur</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">25</span>
-          <span class="badge-name">Raphael ARFIRE</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">26</span>
-          <span class="badge-name">Robin BARBION</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">27</span>
-          <span class="badge-name">SANS Julien</span>
-        </div>
-        <div class="member-badge">
-          <div class="badge-glow" aria-hidden="true"></div>
-          <span class="badge-index mono">28</span>
-          <span class="badge-name">THABET Chahine</span>
-        </div>
+      <div class="roster-grid" id="rosterGrid">
+        <!-- Généré par JS pour l'easter egg -->
       </div>
     </div>
   </section>
@@ -460,14 +305,23 @@
       <div class="section-header">
         <span class="section-tag mono">04 // MINI-JEU</span>
         <h2 class="section-title">BEAM CORE SURVIVOR</h2>
-        <p class="section-subtitle">Survivez aux bugs JS et Rust. Ramassez Lua (cyan) pour débloquer le <strong>triple tir directionnel</strong> dans votre direction de déplacement — stackable jusqu'à 5 balles. Ruby (rouge) active le bouclier à onde de choc.</p>
+        <p class="section-subtitle">
+          Déplacez-vous au clavier ou à la souris. Ramassez <strong style="color:#06B6D4">LUA</strong> pour orbiter des projectiles (auto-tir). <strong style="color:#EF4444">RUBY</strong> crée un bouclier physique. <strong style="color:#22C55E">C++</strong> redonne une vie. À la vague 10, le <strong style="color:#F5A623">BOSS CLAUDE</strong> apparaît.
+        </p>
       </div>
-
       <div class="game-wrapper">
         <div class="game-hud">
           <div class="hud-item">
             <span class="hud-label mono">SCORE</span>
             <span class="hud-value mono" id="scoreDisplay">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label mono">RECORD</span>
+            <span class="hud-value mono hud-highscore" id="highscoreDisplay">0</span>
+          </div>
+          <div class="hud-item">
+            <span class="hud-label mono">VAGUE</span>
+            <span class="hud-value mono" id="waveDisplay">1</span>
           </div>
           <div class="hud-item">
             <span class="hud-label mono">VIE</span>
@@ -477,21 +331,41 @@
               <span class="health-dot active"></span>
             </div>
           </div>
-          <div class="hud-item">
+          <div class="hud-item hud-item-buffs">
             <span class="hud-label mono">BUFFS</span>
             <div class="hud-buffs" id="buffsDisplay">
               <span class="buff-badge buff-lua" id="buffLua" style="display:none">LUA ×<span id="luaCount">0</span></span>
-              <span class="buff-badge buff-ruby" id="buffRuby" style="display:none">RUBY</span>
+              <span class="buff-badge buff-ruby" id="buffRuby" style="display:none">RUBY ×<span id="rubyCount">0</span></span>
             </div>
           </div>
         </div>
 
+        <!-- Barre de vie Boss (cachée par défaut) -->
+        <div class="boss-hud" id="bossHud" style="display:none">
+          <div class="boss-hud-label mono">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 1L14 4.5V11.5L8 15L2 11.5V4.5L8 1Z" stroke="#F5A623" stroke-width="1.2" fill="none"/>
+              <circle cx="8" cy="8" r="2" fill="#F5A623"/>
+            </svg>
+            BOSS — CLAUDE
+          </div>
+          <div class="boss-health-bar">
+            <div class="boss-health-fill" id="bossHealthFill"></div>
+          </div>
+          <span class="boss-hp-text mono" id="bossHpText">???</span>
+        </div>
+
         <div class="canvas-container" id="canvasContainer">
-          <canvas id="gameCanvas" width="700" height="420" tabindex="0" aria-label="Jeu BEAM Core Survivor — utilisez les flèches ou ZQSD pour vous déplacer"></canvas>
+          <canvas id="gameCanvas" width="800" height="480" tabindex="0"
+            aria-label="Jeu BEAM Core Survivor — utilisez les flèches, ZQSD ou la souris pour vous déplacer"></canvas>
           <div class="game-overlay" id="gameOverlay">
             <div class="overlay-content">
               <div class="overlay-title mono" id="overlayTitle">BEAM CORE SURVIVOR</div>
-              <div class="overlay-sub" id="overlaySub">Contrôles : Flèches / ZQSD<br>Évitez les bugs, ramassez les bonus</div>
+              <div class="overlay-sub" id="overlaySub">
+                Clavier : Flèches / WASD / ZQSD<br>
+                Souris : le joueur suit votre curseur<br>
+                Ramassez les bonus, survivez aux vagues
+              </div>
               <button class="btn-primary" id="startBtn">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M5 3L13 8L5 13V3Z" fill="currentColor"/>
@@ -504,24 +378,32 @@
 
         <div class="game-legend">
           <div class="legend-item">
-            <span class="legend-dot" style="background:#9B30FF; box-shadow: 0 0 8px #9B30FF"></span>
-            <span class="legend-label mono">VOUS — Acteur BEAM</span>
+            <span class="legend-dot" style="background:#9B30FF;box-shadow:0 0 8px #9B30FF"></span>
+            <div><strong class="legend-label mono">VOUS</strong><span class="legend-label mono"> — Acteur BEAM</span></div>
           </div>
           <div class="legend-item">
-            <span class="legend-dot" style="background:#EAB308; box-shadow: 0 0 8px #EAB308"></span>
-            <span class="legend-label mono">BUG JS — Projectile jaune</span>
+            <span class="legend-dot" style="background:#EAB308;box-shadow:0 0 8px #EAB308"></span>
+            <div><strong class="legend-label mono">BUG JS</strong><span class="legend-label mono"> — Rapide, 1 HP</span></div>
           </div>
           <div class="legend-item">
-            <span class="legend-dot" style="background:#F97316; box-shadow: 0 0 8px #F97316"></span>
-            <span class="legend-label mono">BUG RUST — Projectile orange</span>
+            <span class="legend-dot" style="background:#F97316;box-shadow:0 0 8px #F97316"></span>
+            <div><strong class="legend-label mono">BUG RUST</strong><span class="legend-label mono"> — Lent, 2 HP</span></div>
           </div>
           <div class="legend-item">
-            <span class="legend-dot" style="background:#06B6D4; box-shadow: 0 0 8px #06B6D4"></span>
-            <span class="legend-label mono">BONUS LUA — Triple tir directionnel + Vitesse</span>
+            <span class="legend-dot" style="background:#06B6D4;box-shadow:0 0 8px #06B6D4"></span>
+            <div><strong class="legend-label mono">BONUS LUA</strong><span class="legend-label mono"> — Orbes offensifs (max 6)</span></div>
           </div>
           <div class="legend-item">
-            <span class="legend-dot" style="background:#EF4444; box-shadow: 0 0 8px #EF4444"></span>
-            <span class="legend-label mono">BONUS RUBY — Bouclier temporaire</span>
+            <span class="legend-dot" style="background:#EF4444;box-shadow:0 0 8px #EF4444"></span>
+            <div><strong class="legend-label mono">BONUS RUBY</strong><span class="legend-label mono"> — Bouclier physique stackable</span></div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#22C55E;box-shadow:0 0 8px #22C55E"></span>
+            <div><strong class="legend-label mono">BONUS C++</strong><span class="legend-label mono"> — Rare : redonne 1 vie</span></div>
+          </div>
+          <div class="legend-item">
+            <span class="legend-dot" style="background:#F5A623;box-shadow:0 0 8px #F5A623"></span>
+            <div><strong class="legend-label mono">BOSS CLAUDE</strong><span class="legend-label mono"> — Vague 10</span></div>
           </div>
         </div>
       </div>
@@ -539,12 +421,8 @@
         </svg>
         <span class="mono">FACTION ELIXIR</span>
       </div>
-      <div class="footer-meta mono">
-        Epitech &mdash; Projet Langages &mdash; 2026
-      </div>
-      <div class="footer-tech mono">
-        Propulsé par BEAM VM &amp; OTP
-      </div>
+      <div class="footer-meta mono">Epitech &mdash; Projet Langages &mdash; 2026</div>
+      <div class="footer-tech mono">Propulsé par BEAM VM &amp; OTP</div>
     </div>
   </footer>
 
